@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maaf Kiya</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .button-container {
+            margin-bottom: 20px;
+        }
+        button {
+            font-size: 1.2em;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #maafButton {
+            background-color: #4caf50;
+            color: white;
+        }
+        #noMaafButton {
+            background-color: #f44336;
+            color: white;
+        }
+        #message {
+            font-size: 2em;
+            font-weight: bold;
+            position: absolute;
+        }
+        .glow {
+            text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000;
+        }
+    </style>
+</head>
+<body>
+    <div class="button-container">
+        <button id="maafButton">Maaf Kiya</button>
+        <button id="noMaafButton">Maafi Nhi Milegi</button>
+    </div>
+    <div id="message"></div>
+
+    <script>
+        const messageDiv = document.getElementById('message');
+        const noMaafButton = document.getElementById('noMaafButton');
+
+        noMaafButton.addEventListener('click', () => {
+            const colors = ['#ff0000', '#00ff00', '#0000ff', '#ff00ff', '#ffff00', '#00ffff'];
+            const randomColor = colors[Math.floor(Math.random() * colors.length)];
+            const randomX = Math.random() * (window.innerWidth - 100) + 'px';
+            const randomY = Math.random() * (window.innerHeight - 100) + 'px';
+
+            messageDiv.textContent = 'Sorry 😔bolchi to';
+            messageDiv.style.color = randomColor;
+            messageDiv.style.top = randomY;
+            messageDiv.style.left = randomX;
+            messageDiv.classList.add('glow');
+        });
+
+        document.getElementById('maafButton').addEventListener('click', () => {
+            messageDiv.textContent = 'Thank you Debu for forgiving! 😊 - Din din puchki hoe jacchis';
+            messageDiv.style.color = '#4caf50';
+            messageDiv.style.top = '50%';
+            messageDiv.style.left = '50%';
+            messageDiv.classList.remove('glow');
+        });
+    </script>
+</body>
+</html>
